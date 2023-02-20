@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <script src="https://kit.fontawesome.com/1e6cfe0430.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- <div class="buttons-wrapper">
+            <button class="button previous">
+                <i class="fa-solid fa-angles-left"></i>
+            </button>
+            <button class="button play">
+                <i class="fa-solid fa-play"></i>
+                <i class="fa-solid fa-stop"></i>
+            </button>
+            <button class="button next">
+                <i class="fa-solid fa-angles-right"></i>
+            </button>
+        </div> -->
+        <div class="wrapper">
+            <div class="carousel">
+                <div class="slide" v-for="(element, i) in slidesList" :class="(i === activeSlideIndex) ? 'active' : ''">
+                    <img :src="element.image" alt="">
+                    <div class="info">
+                        <h1 class="title">{{element.title}}</h1>
+                        <p class="text">{{element.text}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-wrapper">
+                <i @click="prevSlide" id="arrow-left" class="arrow arrow-left fa-solid fa-chevron-left"></i>
+                <i @click="nextSlide" id="arrow-right" class="arrow arrow-right fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

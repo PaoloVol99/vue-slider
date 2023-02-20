@@ -16,7 +16,7 @@
             <button class="button previous">
                 <i class="fa-solid fa-angles-left"></i>
             </button>
-            <button class="button play">
+            <button @click="interval" class="button play">
                 <i class="fa-solid fa-play"></i>
                 <i class="fa-solid fa-stop"></i>
             </button>
@@ -25,7 +25,7 @@
             </button>
         </div> -->
         <div class="wrapper">
-            <div class="carousel">
+            <div @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay" class="carousel">
                 <div class="slide" v-for="(element, i) in slidesList" :class="(i === activeSlideIndex) ? 'active' : ''">
                     <img :src="element.image" alt="">
                     <div class="info">
@@ -33,10 +33,10 @@
                         <p class="text">{{element.text}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="arrow-wrapper">
-                <i @click="prevSlide" id="arrow-left" class="arrow arrow-left fa-solid fa-chevron-left"></i>
-                <i @click="nextSlide" id="arrow-right" class="arrow arrow-right fa-solid fa-chevron-right"></i>
+                <div class="arrow-wrapper">
+                    <i @click="prevSlide" id="arrow-left" class="arrow arrow-left fa-solid fa-chevron-left"></i>
+                    <i @click="nextSlide" id="arrow-right" class="arrow arrow-right fa-solid fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </div>
